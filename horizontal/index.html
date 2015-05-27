@@ -1,0 +1,153 @@
+<!-- 
+  IMPORTANT: To Link to this Page 
+
+  Click 'Menu' button at the top and select 'Copy Link' 
+--> 
+
+
+<!DOCTYPE HTML>
+<!--
+	Prologue 1.1 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SocialMap</title>
+      	
+      	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600" rel="stylesheet" type="text/css" />
+		<script src="lib/jquery.min.js"></script>
+		<script src="lib/skel.min.js"></script>
+		<script src="lib/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+		<noscript>
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<link rel="stylesheet" href="css/grid.css" />
+		<link rel="stylesheet" href="css/my-styles.css" />
+		
+	</head>
+	<body>
+
+		<!-- Header -->
+		<div>
+			<div id="header" class="skel-panels-fixed">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo" href="index.html">
+							<a href="index.html">
+								<span class="image avatar48"><img src="http://www.annasworldblog.com/wp-content/uploads/2015/01/Layer_14-01-512.png" alt="" style="background-color: #D7D8D9" /></span>
+								<h1 id="title">SocialMap</h1>
+								<span class="byline">Best social places</span>
+						</a>
+						</div>
+
+						<div id="logo" style="margin: 0.5em 1.5em;">
+							<h1 id="title" style="font-size: .9em; line-height: .9em;">London</h1>
+						</div>
+						
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a class="active" href="index.html"><span class="fa">Main</span></a></li>
+								<li><a href="accomodation.html"><span class="fa fa-home">Accommodation</span></a></li>
+								<li><a href="gastronomy.html"><span class="fa fa-cutlery">Gastronomy</span></a></li>
+								<li><a href=""><span class="fa fa-music">Entertainment</span></a></li>
+								<li><a href=""><span class="fa fa-star">Culture</span></a></li>
+								<li><a href=""><span class="fa fa-trophy">Sport</span></a></li>
+							</ul>
+						</nav>
+						
+				</div>
+			
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+			
+				<!-- Intro -->
+					<section id="top" class="one">
+						<div class="container">
+
+							<header>
+								<h2 class="alt"><strong>London</strong></a></h2>
+							</header>
+
+							<div id="map" class="centered" style="width: 90%; height: 65vh;"></div>
+
+						</div>
+					</section>
+
+			</div>
+
+	</body>
+
+	<script>
+
+		var zoneMap = {};
+		zoneMap['1st'] = {
+		  center: new google.maps.LatLng(51.5069238,-0.1265003),
+		  size: 3
+		};
+		zoneMap['2nd'] = {
+		  center: new google.maps.LatLng(51.5045464,-0.1134755),
+		  size: 8
+		};
+		zoneMap['3rd'] = {
+		  center: new google.maps.LatLng(51.5138282,-0.1269294),
+		  size: 6
+		};
+		zoneMap['4th'] = {
+		  center: new google.maps.LatLng(51.5020554,-0.1005258),
+		  size: 12
+		};
+		zoneMap['5th'] = {
+		  center: new google.maps.LatLng(51.5113443,-0.0933321),
+		  size: 3
+		};
+
+		var zoneCircle;
+
+		function initialize() {
+		  var mapOptions = {
+		    zoom: 15,
+		    center: new google.maps.LatLng(51.5055415, -0.1073064),
+		    mapTypeId: google.maps.MapTypeId.TERRAIN
+		  };
+
+		  var map = new google.maps.Map(document.getElementById('map'),
+		      mapOptions);
+
+		  for (var zone in zoneMap) {
+		    var zoneOptions = {
+		      strokeColor: '#FF0000',
+		      strokeOpacity: 0.8,
+		      strokeWeight: 2,
+		      fillColor: '#FF0000',
+		      fillOpacity: 0.35,
+		      map: map,
+		      center: zoneMap[zone].center,
+		      radius: Math.sqrt(zoneMap[zone].size) * 100
+		    };
+		    zoneCircle = new google.maps.Circle(zoneOptions);
+
+		    google.maps.event.addListener(zoneCircle, 'click', function() {
+    		  window.location.href = 'hotzone.html';
+  			});
+
+		  }
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+	</script>
+
+</html>
