@@ -1,0 +1,44 @@
+.container {
+    width: 85%;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding-top: 5%;
+        width: 100%;
+    }
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.objects-container {
+	margin-top: 70px;
+    padding: 1% 0;
+    width: 80%;
+}
+
+.object-image {
+    width: 100%;
+}
+
+.name,
+.info {
+    text-align: left;
+}
+
+.stats {
+    text-align: right;
+    font-size: .8em;
+    line-height: 1.25em;
+    padding-top: .5em;
+}
+
+.place-title,
+.place-info {
+	padding-bottom: 5%;
+    padding-left: 7%;
+    text-align: left;
+}
