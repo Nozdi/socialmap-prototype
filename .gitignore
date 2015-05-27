@@ -64,3 +64,4 @@ vertical/google.bin.gz
 #mac
 .DS_Store
 
+.ipynb_checkpoints
