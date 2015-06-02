@@ -1,0 +1,8 @@
+tweepy
+pygeocoder
+pandas
+matplotlib
+ipython
+sklearn
+scipy
+gensim
