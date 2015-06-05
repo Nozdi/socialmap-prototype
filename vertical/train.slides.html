@@ -1726,7 +1726,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Clustering-data">Clustering data<a class="anchor-link" href="#Clustering-data">&#182;</a></h2>
+<h1 id="Hot-Zones">Hot Zones<a class="anchor-link" href="#Hot-Zones">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -1738,7 +1738,6 @@ div.output_prompt {
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
 <span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
@@ -1756,7 +1755,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Loading-data">Loading data<a class="anchor-link" href="#Loading-data">&#182;</a></h3>
+<h2 id="Loading-data">Loading data<a class="anchor-link" href="#Loading-data">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1770,19 +1769,79 @@ div.output_prompt {
 <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">5000</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>coordinates</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>     0</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.124964...</td>
+      <td> Teaser of what's to come next. Watch this spac...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>   100</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.137146...</td>
+      <td> #Happybirthdaytome xmtamirx @ Tsunami West End...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>  1000</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.120741...</td>
+      <td> Hands down one of the nicest meals I have ever...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 10000</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.1271, ...</td>
+      <td> Trend Alert: 'Charlie Charlie'. More trends at...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 10002</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.191774...</td>
+      <td> .@ethiopienne because they thought I'd call th...</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-coordinates-from-data">Get coordinates from data<a class="anchor-link" href="#Get-coordinates-from-data">&#182;</a></h3>
+<h2 id="Get-coordinates-from-data">Get coordinates from data<a class="anchor-link" href="#Get-coordinates-from-data">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1796,9 +1855,86 @@ div.output_prompt {
     <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="s">&#39;coordinates&#39;</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>coordinates</th>
+      <th>text</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>     0</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.124964...</td>
+      <td> Teaser of what's to come next. Watch this spac...</td>
+      <td>-0.124965</td>
+      <td> 51.526962</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>   100</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.137146...</td>
+      <td> #Happybirthdaytome xmtamirx @ Tsunami West End...</td>
+      <td>-0.137146</td>
+      <td> 51.520491</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>  1000</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.120741...</td>
+      <td> Hands down one of the nicest meals I have ever...</td>
+      <td>-0.120741</td>
+      <td> 51.510472</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 10000</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.1271, ...</td>
+      <td> Trend Alert: 'Charlie Charlie'. More trends at...</td>
+      <td>-0.127100</td>
+      <td> 51.506300</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 10002</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.191774...</td>
+      <td> .@ethiopienne because they thought I'd call th...</td>
+      <td>-0.191774</td>
+      <td> 51.513527</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1809,7 +1945,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Count-distances">Count distances<a class="anchor-link" href="#Count-distances">&#182;</a></h3>
+<h2 id="Count-distances">Count distances<a class="anchor-link" href="#Count-distances">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1821,19 +1957,51 @@ div.output_prompt {
     <div class="input_area">
 <div class="highlight"><pre><span class="n">coords</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;lon&#39;</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">])</span>
 <span class="n">distance_matrix</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">squareform</span><span class="p">(</span><span class="n">distance</span><span class="o">.</span><span class="n">pdist</span><span class="p">(</span><span class="n">coords</span><span class="p">))</span>
+<span class="n">distance_matrix</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+array([[ 0.        ,  0.01379366,  0.01702168, ...,  0.08209694,
+         0.06449113,  0.02077172],
+       [ 0.01379366,  0.        ,  0.01922244, ...,  0.08913307,
+         0.07827378,  0.01738706],
+       [ 0.01702168,  0.01922244,  0.        , ...,  0.06996894,
+         0.06979314,  0.00760545],
+       ..., 
+       [ 0.08209694,  0.08913307,  0.06996894, ...,  0.        ,
+         0.07578695,  0.07410379],
+       [ 0.06449113,  0.07827378,  0.06979314, ...,  0.07578695,
+         0.        ,  0.07736061],
+       [ 0.02077172,  0.01738706,  0.00760545, ...,  0.07410379,
+         0.07736061,  0.        ]])
+</pre>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cluster">Cluster<a class="anchor-link" href="#Cluster">&#182;</a></h3>
+<h2 id="Cluster">Cluster<a class="anchor-link" href="#Cluster">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1858,13 +2026,9 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
-    <span class="n">class_members</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">class_members</span><span class="p">,</span> <span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
-
+<div class="highlight"><pre><span class="n">df</span><span class="p">[</span><span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;color&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -1877,11 +2041,51 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-8
-</pre>
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>coordinates</th>
+      <th>text</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3 </th>
+      <td> 10000</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.1271, ...</td>
+      <td> Trend Alert: 'Charlie Charlie'. More trends at...</td>
+      <td>-0.127100</td>
+      <td> 51.506300</td>
+      <td> 0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td> 10016</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.1275, ...</td>
+      <td> Bidossêssie's clothes. @bidossessie #fashion #...</td>
+      <td>-0.127500</td>
+      <td> 51.507200</td>
+      <td> 1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td> 10029</td>
+      <td> {u'type': u'Point', u'coordinates': [-0.172032...</td>
+      <td> 🔛🔝❤️🌹❗️❕‼️ @ Lord's Cricket Ground https://...</td>
+      <td>-0.172033</td>
+      <td> 51.529665</td>
+      <td> 2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -1896,14 +2100,14 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Result">Result<a class="anchor-link" href="#Result">&#182;</a></h3>
+<h2 id="Result">Result<a class="anchor-link" href="#Result">&#182;</a></h2>
 </div>
 </div>
 </div>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -1921,12 +2125,12 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
 <pre>
-&lt;matplotlib.text.Text at 0x135426990&gt;
+&lt;matplotlib.text.Text at 0x138541f90&gt;
 </pre>
 </div>
 
@@ -2131,7 +2335,7 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-tweets-about-restaurants-in-clusters">Finding tweets about restaurants in clusters<a class="anchor-link" href="#Finding-tweets-about-restaurants-in-clusters">&#182;</a></h2>
+<h1 id="Finding-tweets-about-categories-in-clusters">Finding tweets about categories in clusters<a class="anchor-link" href="#Finding-tweets-about-categories-in-clusters">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -2139,7 +2343,7 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">gensim.models.word2vec</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
@@ -2155,7 +2359,7 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">get_sim</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
@@ -2176,21 +2380,22 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Getting-tweets-about-restaurants">Getting tweets about restaurants<a class="anchor-link" href="#Getting-tweets-about-restaurants">&#182;</a></h3>
+<h2 id="Main-function">Main function<a class="anchor-link" href="#Main-function">&#182;</a></h2>
 </div>
 </div>
 </div>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_tweets_about</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;restaurant&#39;</span><span class="p">):</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">get_tweets_about</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
         <span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">get_sim</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
     <span class="p">)</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;color&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&#39;color&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">print</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -2205,14 +2410,14 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Restaurant">Restaurant<a class="anchor-link" href="#Restaurant">&#182;</a></h3>
+<h2 id="How-it-works?">How it works?<a class="anchor-link" href="#How-it-works?">&#182;</a></h2>
 </div>
 </div>
 </div>
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;restaurant&#39;</span><span class="p">)</span>
@@ -2257,47 +2462,20 @@ g5wkSVKjDHKSJEmNMshJkiQ1yiAnSZLUKIOcJElSo/5/tpcS8pjTBDkAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Accomodation">Accomodation<a class="anchor-link" href="#Accomodation">&#182;</a></h3>
+<h2 id="Restaurant">Restaurant<a class="anchor-link" href="#Restaurant">&#182;</a></h2>
 </div>
 </div>
 </div>
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;accomodation&#39;</span><span class="p">)</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="late-lunch-at-one-of-my-favourite-restaurants-in-london-maroush-lebanese-sogood-knightsbridge-https-t-co-yszzesnmpu">Late lunch at one of my favourite restaurants in London. #Maroush #Lebanese #SoGood @ Knightsbridge,… <a href="https://t.co/YszzeSNmPu">https://t.co/YszzeSNmPu</a></h3>
+<h3 id="view-from-the-tavern-stand-lord-s-cricket-ground-https-t-co-u1pvigrnut">View from the tavern stand @ Lord&#39;s Cricket Ground <a href="https://t.co/u1pvIgRNUT">https://t.co/u1pvIgRNUT</a></h3>
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-0 London was the city of United Kingdom with more Trends on Sunday 24: http://t.co/MCDIMLCglu #trndnl
-1 Good night Sunday LA
-Good morning Monday London 
-#itsstillaholiday #memorialdayweekend… https://t.co/Z3Jj2KalDg
-2 Day 5 Eng v NZ £20 a ticket bargain! @ Lord&apos;s Cricket Ground https://t.co/l1kLa9v6Vb
-3 #eatingndastreets artist @T_Supreme404  http://t.co/veN8ASbgkS looking do  features for free and comes with promotion from us!!
-4 Last day of @offprintlondon London tatemodern. Last day to come see us at booth 134 and get your… https://t.co/8kHBersgbM
-5 Truly the pride of London #chelsea #weRthechampions #Stamfordbridge @ Stamford Bridge https://t.co/kcQ6NScC9M
-6 Watching the 10K Bupa race with Miss avnitashergill #Helitech team @ London Bupa 10k https://t.co/NJDuvRB5KE
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -2305,14 +2483,15 @@ Good morning Monday London
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sport">Sport<a class="anchor-link" href="#Sport">&#182;</a></h3>
+<h2 id="Sport">Sport<a class="anchor-link" href="#Sport">&#182;</a></h2>
 </div>
 </div>
 </div>
-
+<div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;sport&#39;</span><span class="p">)</span>
@@ -2345,24 +2524,15 @@ Good morning Monday London
 </div>
 </div>
 
-</div></section><section>
+</div>
+    </div><div style=display:none>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Culture">Culture<a class="anchor-link" href="#Culture">&#182;</a></h3>
-</div>
-</div>
-</div>
-
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;culture&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;chelsea&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2376,13 +2546,19 @@ Good morning Monday London
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-0 Trend Alert: #MTVaskStereoKicks. More trends at http://t.co/do7Hdxwcnc #trndnl http://t.co/a2oQ3dcTEv
-1 I&apos;d like a cheese-burger, large fries, and a cosmopolitan @ London, United Kingdom https://t.co/DLAFvSbFut
-2 Hat trick ball for Ben Stokes. Crowd full-throated. This is not your traditional Lords atmosphere… https://t.co/4a7N3TU7Wu
+0 6. Off to Wembley
+7. Danny Murphy
+8. Tyson Beckford
+9. Stoke
+10. Liverpool
+
+2015/5/25 07:34 BST #trndnl http://t.co/do7Hdxwcnc
+1 Back in London Town!!! #helsinki #finland #scandi #Scandinavia #nordic #baltic #adventure #explore… https://t.co/McRyzJyNTs
+2 Watching England smashing some Kiwis @ Lord&apos;s Cricket Ground https://t.co/616cUxe1eI
 3 #retweet4follow #retweet4follow #retweet4follow Best Commercial free HipHop radio app http://t.co/BPeaDpYMnC
-4 Slowly munching through carrot cake at as many of London&apos;s cultural hotspots as I can. Also, when a… https://t.co/pmZZS3fnH4
-5 Truly the pride of London #chelsea #weRthechampions #Stamfordbridge @ Stamford Bridge https://t.co/kcQ6NScC9M
-6 Finished the #Bupa10000 running for Harefield Hospital. Great to see so many people running and… https://t.co/UiloxuI6BI
+4 Old London and new #London all in one. #TateModern #MillenniumBridge #RiverThames @ Tate Modern https://t.co/7O0d7A5rRU
+5 Chelsea fans waiting for the victory parade. Disclaimer - I&apos;m not a Chelsea fan.  #chelsea… https://t.co/4mIaUmhTd6
+6 Finishers medal for #bupa10k  #2015 #London #running @ London Bupa 10k https://t.co/E2ehcsAECM
 
 </pre>
 </div>
@@ -2391,6 +2567,119 @@ Good morning Monday London
 </div>
 </div>
 
+</div>
+    </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="we-won-the-league-cfc-stamford-bridge-https-t-co-laugo7nltj">WE WON THE LEAGUE 💙 #CFC @ Stamford Bridge <a href="https://t.co/LAUgo7NLtj">https://t.co/LAUgo7NLtj</a></h3>
+<h3 id="finishers-medal-for-bupa10k-2015-london-running-london-bupa-10k-https-t-co-e2ehcsaecm">Finishers medal for #bupa10k  #2015 #London #running @ London Bupa 10k <a href="https://t.co/E2ehcsAECM">https://t.co/E2ehcsAECM</a></h3>
+</div>
+</div>
+</div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Culture">Culture<a class="anchor-link" href="#Culture">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;museum&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+0 London was the city of United Kingdom with more Trends on Sunday 24: http://t.co/MCDIMLCglu #trndnl
+1 #alexandermcqueen #savagebeauty #v&amp;amp;a @ Savage Beauty, Victoria &amp;amp; Albert Museum https://t.co/8nLVPiTTNv
+2 View from the tavern stand @ Lord&apos;s Cricket Ground https://t.co/u1pvIgRNUT
+3 #eatingndastreets artist @T_Supreme404  http://t.co/veN8ASbgkS looking do  features for free and comes with promotion from us!!
+4 Off Print London, fantastic art publishing fair. @ Tate Modern https://t.co/kYrkDMNeT5
+5 Pergi chelsea megastore nak beli jersey, terbeli hati dia ni pulak #COYG #AdventureTimeWithDanish @… https://t.co/rYO2swPmzU
+6 He did it! Just under 47 minutes! #Proud @ London Bupa 10k https://t.co/1JLs5ceuRF
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div><div style=display:none>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">get_tweets_about</span><span class="p">(</span><span class="s">&#39;concert&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+0 6. Redmond
+7. #BankHolidayMonday
+8. #GetStupid
+9. Heather Watson
+10. Dances with Wolves
+
+2015/5/25 16:56 BST #trndnl http://t.co/do7Hdxwcnc
+1 Hang out in London with amazing singer kellileighuk 
+#Kelli #Leigh #London #UK #travel #trip… https://t.co/GWH2ldD6Zc
+2 Day 5 Eng v NZ £20 a ticket bargain! @ Lord&apos;s Cricket Ground https://t.co/l1kLa9v6Vb
+3 #eatingndastreets artist @T_Supreme404  http://t.co/veN8ASbgkS looking do  features for free and comes with promotion from us!!
+4 Pablo Picasso The Three Dancers at the Tate. #Tate #tatemodern #art #museum #pablopicasso… https://t.co/2Fatni3Mhn
+5 Came to Fulham to meet a friend for brunch and...look what we stumbled into. #Chelsea #football… https://t.co/V3JVGdABFJ
+6 @jodebaker premierinn goshcc #teamGOSH #goshcc thank you Jodie and Janet for being there to cheer me… https://t.co/Inrf9b1sOA
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="off-print-london-fantastic-art-publishing-fair-tate-modern-https-t-co-kyrkdmnet5">Off Print London, fantastic art publishing fair. @ Tate Modern <a href="https://t.co/kYrkDMNeT5">https://t.co/kYrkDMNeT5</a></h3>
+<h3 id="pablo-picasso-the-three-dancers-at-the-tate-tate-tatemodern-art-museum-pablopicasso-https-t-co-2fatni3mhn">Pablo Picasso The Three Dancers at the Tate. #Tate #tatemodern #art #museum #pablopicasso… <a href="https://t.co/2Fatni3Mhn">https://t.co/2Fatni3Mhn</a></h3>
+</div>
+</div>
 </div></section>
     </section>
 </div>
